@@ -28,7 +28,9 @@ app.use(rateLimit({
 const authRouter = require('./routes/auth');
 const jobsRouter = require('./routes/jobs');
 const authMiddleware = require('./middlewares/auth');
-
+app.get('/', (req, res) => {
+    res.send('jobs api');
+});
 app.use('/api/v1/auth', authRouter);
 app.use('/api/v1/jobs', authMiddleware, jobsRouter);
 
